@@ -1,4 +1,5 @@
 class Chef {
+  [x: string]: any;
   private static instance: Chef;
 
   private constructor() {}

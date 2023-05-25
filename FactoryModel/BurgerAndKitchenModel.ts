@@ -2,17 +2,20 @@ interface Burger {
   getDescription(): string;
   addSauce(sauce: string): void;
   getBurgerType(): string;
+  isForHome(forHome: boolean): boolean;
 }
 
 class RoyalBurger implements Burger {
   private description: string;
   private sauces: string[];
   private burgerType: string;
+  private forHome: boolean;
 
   constructor() {
     this.description = "Кралски бургер";
     this.sauces = [];
     this.burgerType = "кралски";
+    this.forHome = false;
   }
 
   public getDescription(): string {
@@ -22,8 +25,13 @@ class RoyalBurger implements Burger {
   public addSauce(sauce: string): void {
     this.sauces.push(sauce);
   }
+
   public getBurgerType(): string {
     return this.burgerType;
+  }
+
+  public isForHome(): boolean {
+    return this.forHome;
   }
 }
 
@@ -31,11 +39,13 @@ class ClassicBurger implements Burger {
   private description: string;
   private sauces: string[];
   private burgerType: string;
+  private forHome: boolean;
 
   constructor() {
     this.description = "Класически бургер";
     this.sauces = [];
     this.burgerType = "класически";
+    this.forHome = false;
   }
 
   public getDescription(): string {
@@ -47,6 +57,10 @@ class ClassicBurger implements Burger {
   }
   public getBurgerType(): string {
     return this.burgerType;
+  }
+
+  public isForHome(): boolean {
+    return this.forHome;
   }
 }
 
@@ -54,11 +68,13 @@ class VegetarianBurger implements Burger {
   private description: string;
   private sauces: string[];
   private burgerType: string;
+  private forHome: boolean;
 
   constructor() {
     this.description = "Вегетариански бургер";
     this.sauces = [];
     this.burgerType = "вегетариански";
+    this.forHome = false;
   }
 
   public getDescription(): string {
@@ -68,12 +84,20 @@ class VegetarianBurger implements Burger {
   public addSauce(sauce: string): void {
     this.sauces.push(sauce);
   }
+
   public getBurgerType(): string {
     return this.burgerType;
+  }
+
+  public isForHome(): boolean {
+    return this.forHome;
   }
 }
 
 class Kitchen {
+  static createBurger(burgerType: string): Burger {
+    throw new Error("Method not implemented.");
+  }
   public createBurger(order: Order): Burger {
     if (order instanceof BurgerOrder) {
       const burgerType = order.getBurgerType();

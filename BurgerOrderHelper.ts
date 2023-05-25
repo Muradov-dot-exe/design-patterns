@@ -5,9 +5,11 @@ interface Order {
 class BurgerOrder implements Order {
   [x: string]: any;
   private burger: Burger;
+  private forHome: boolean;
 
-  constructor(burger: Burger) {
+  constructor(burger: Burger, forHome: boolean) {
     this.burger = burger;
+    this.forHome = forHome;
   }
 
   public execute(): void {
@@ -17,7 +19,11 @@ class BurgerOrder implements Order {
     );
     this.burger.addSauce("кетчуп");
     this.burger.addSauce("чеснов сос");
-
-    console.log("Бургерът е готов!");
+    if (this.forHome) {
+      console.log("Бургерът е за вкъщи.");
+    } else {
+      console.log("Бургерът не е за вкъщи.");
+    }
+    console.log("Бургерът е готов.");
   }
 }

@@ -15,6 +15,10 @@ class BurgerDecorator implements Burger {
   public addSauce(sauce: string): void {
     this.burger.addSauce(sauce);
   }
+
+  public isForHome(forHome: boolean): boolean {
+    return this.burger.isForHome(forHome);
+  }
 }
 
 class KetchupDecorator extends BurgerDecorator {
