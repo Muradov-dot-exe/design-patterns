@@ -4,6 +4,7 @@ class Restaurant {
   private constructor() {}
 
   public static getInstance(): Restaurant {
+    // Създава и връща истанцията на Restaurant(Singleton Model)
     if (!Restaurant.instance) {
       Restaurant.instance = new Restaurant();
     }

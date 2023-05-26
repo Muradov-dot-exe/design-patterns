@@ -1,4 +1,5 @@
 class Cashier {
+  //Приема поръчка и създава обект който се връща към Chef
   [x: string]: any;
   private static instance: Cashier;
   private chef: Chef;

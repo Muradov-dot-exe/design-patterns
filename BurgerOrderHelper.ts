@@ -11,7 +11,7 @@ class BurgerOrder implements Order {
     this.burger = burger;
     this.forHome = forHome;
   }
-
+  //Допълнителен хелпър файл който отговаря за генерирането на бургера.
   public execute(): void {
     console.log(
       `Приготвяне на ${this.burger.getBurgerType()} бургер с информация:`,
@@ -25,5 +25,5 @@ class BurgerOrder implements Order {
       console.log("Бургерът не е за вкъщи.");
     }
     console.log("Бургерът е готов.");
-  }
+  } //Създаваме бургера
 }

@@ -12,7 +12,7 @@ class RoyalBurger implements Burger {
   private forHome: boolean;
 
   constructor() {
-    this.description = "Кралски бургер";
+    this.description = "Най-вкусният бургер";
     this.sauces = [];
     this.burgerType = "кралски";
     this.forHome = false;
@@ -42,7 +42,7 @@ class ClassicBurger implements Burger {
   private forHome: boolean;
 
   constructor() {
-    this.description = "Класически бургер";
+    this.description = "Old but Gold бургер";
     this.sauces = [];
     this.burgerType = "класически";
     this.forHome = false;
@@ -71,7 +71,7 @@ class VegetarianBurger implements Burger {
   private forHome: boolean;
 
   constructor() {
-    this.description = "Вегетариански бургер";
+    this.description = "Женски бургер";
     this.sauces = [];
     this.burgerType = "вегетариански";
     this.forHome = false;
@@ -95,10 +95,13 @@ class VegetarianBurger implements Burger {
 }
 
 class Kitchen {
+  //Клас отговорен за създаването на бургера
   static createBurger(burgerType: string): Burger {
     throw new Error("Method not implemented.");
   }
+  //Приема обект от тип Order, в който седи нашата информация
   public createBurger(order: Order): Burger {
+    //Използваме информацяита от поръчката
     if (order instanceof BurgerOrder) {
       const burgerType = order.getBurgerType();
       switch (burgerType) {
